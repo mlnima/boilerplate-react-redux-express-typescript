@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "I:\\Dev Project\\boilerplate-react-redux-express-typescript\\server\\src\\logs\\debug\\.ecffb91011b93c2cdcff253e425467e9c25841cd-audit.json",
+    "files": [
+        {
+            "date": 1658864582667,
+            "name": "I:\\Dev Project\\boilerplate-react-redux-express-typescript\\server\\src\\logs\\debug\\2022-07-26.log",
+            "hash": "c1e71f9d4c43d4123278cc7e078bbdb362b67fdbd065d793f02f323821c2b6a7"
+        }
+    ],
+    "hashType": "sha256"
+}
