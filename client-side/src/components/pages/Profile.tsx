@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useLayoutEffect, useRef} from 'react';
 import {useAppDispatch, useAppSelector} from "../../store/hooks";
 import {useNavigate} from "react-router-dom";
 import styled from "styled-components";
@@ -23,11 +23,20 @@ const Profile = () => {
     const {isLogin, userData} = useAppSelector((store) => store.users)
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (!isLogin) {
-            navigate(-1)
-        }
-    }, [isLogin]);
+    // useLayoutEffect(() => {
+    //     if (!isLogin) {
+    //         sendBackUser()
+    //
+    //     }
+    // }, [isLogin]);
+    //
+    // const sendBackUser=()=>{
+    //     setTimeout(()=>{
+    //         if (!isLogin) {
+    //             navigate(-1)
+    //         }
+    //     }, 2000)
+    // }
 
 
     const onUploadHandler = (e: any) => {
@@ -48,7 +57,7 @@ const Profile = () => {
         <Style className="profile">
             {/*//@ts-ignore*/}
             <img ref={imageElement} onClick={(e) => uploadInputElement?.current?.click(e)}
-                 src={userData?.profileImage || '/user-default.png'} alt={'profile image'}
+                 src={userData?.profileImage ? '/api' +userData?.profileImage : '/user-default.png'} alt={'profile image'}
                  className={'use-profile-image'}/>
             <input ref={uploadInputElement} type="file" style={{display: 'none'}} onChange={e => onUploadHandler(e)}/>
             {!!userData.email && <p>Email: <span>{userData.email}</span></p>}

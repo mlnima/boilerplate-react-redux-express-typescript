@@ -5,8 +5,8 @@ import UserSchema from '../../models/userSchema'
 const userUploadImage = async (req, res) => {
     const file = req.files.profileImage
     const userId = req.userData._id
-    fsExtra.remove('./public/uploads/users/' + userId + '/' + req.body.type + '.png')
-    const directoryPath = './public/uploads/users/' + userId + '/'
+    fsExtra.remove('./static/uploads/users/' + userId + '/' + req.body.type + '.png')
+    const directoryPath = './static/uploads/users/' + userId + '/'
     const filePath = directoryPath + file.name + '.png'
     const filePathOriginalSize = directoryPath + 'originalSize_' + file.name;
     fsExtra.ensureDir(directoryPath).then(() => {

@@ -1,6 +1,7 @@
 require('dotenv').config()
 import databaseConnector from "./_variables/databaseConnector";
 databaseConnector().finally()
+//@ts-ignore
 import express from "express";
 import * as bodyParser from 'body-parser';
 import rootRouter from "./router/rootRouter";
@@ -11,7 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(fileUpload())
 
-app.use('/public', express.static(path.join(__dirname, 'public'),{maxAge: "604800000"}))
+app.use('/api/static', express.static(path.join(__dirname, 'static'),{maxAge: "604800000"}))
 
 app.get( "/api", ( req, res ) => {
     res.send( "ok" );
